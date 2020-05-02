@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Login and register</title>
+  </head>
+  <body class='index_body'>
+    <div class='shade'>
+      <div class="row mt-5">
+        <div class="col-3"></div>
+        <div class="col-6 login_Body"
+          <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+            <h1 class="alert-info font-weight-bold btn-sm mb-5 text-center">Resend confirmation instructions</h1>
+            <%= render "devise/shared/error_messages", resource: resource %>
+
+            <div class="row">
+              <%= f.label :email,:class=>'col-sm-3 col-form-label text-right form_lable' %><br />
+              <div class='col-sm-9'>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),:class=>'form-control mb-3' %>
+              </div>
+            </div>
+          
+            <div class="actions">
+              <%= f.submit "Resend confirmation instructions" ,:class=>'btn btn-warning mb-2 mt-2'%>
+            </div>
+          <% end %> 
+          
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
