@@ -30,10 +30,10 @@
       <%= @laptop.comment %>
     </p>
 
-    <%= link_to "Edit", edit_laptop_path(@laptop), :class => 'btn btn-sm btn-dark'%>
-    <%= link_to "Delete", laptop_path(@laptop), :class => 'btn btn-sm btn-danger',
+    <%= link_to " Edit", edit_laptop_path(@laptop), :class => 'fa fa-edit btn btn-sm btn-dark'%>
+    <%= link_to " Delete", laptop_path(@laptop), :class => 'fa fa-trash btn btn-sm btn-danger',
                               method: :delete,
                               data: { confirm: 'Are you sure?' }%>
   </div>
-  <%= link_to 'Back', laptops_path, :class => 'btn btn-sm btn-dark mb-3'%>
+  <%= link_to ' Back', laptops_path, :class => 'fa fa-reply btn btn-sm btn-dark mb-3'%>
 </div>

@@ -4,11 +4,7 @@
     <div class="col-3"></div>
     <div class="col-6">
       <%= form_for :desktop, url: desktops_path do |form| %>
-        <% if @desktop.errors.any? %>
-          <% @desktop.errors.full_messages.each do |msg| %>
-            <div class="alert alert-danger"><%= msg %></div>
-          <% end %>
-        <% end %>
+        
 
         <div class="row mb-3">
           <%= form.label :Employee_ID, :class=>'col-sm-3 col-form-label text-right'%>
@@ -48,8 +44,14 @@
         
       <% end %>
     </div>
-    <div class="col-3"></div>
+    <div class="col-3">
+    <% if @desktop.errors.any? %>
+          <% @desktop.errors.full_messages.each do |msg| %>
+            <div class="alert alert-danger"><%= msg %></div>
+          <% end %>
+        <% end %>
+    </div>
   </div>
 
-  <%= link_to 'Back', desktops_path, :class => 'btn btn-sm btn-dark' %>
+  <%= link_to ' Back', desktops_path, :class => 'fa fa-reply btn btn-sm btn-dark' %>
 </div>

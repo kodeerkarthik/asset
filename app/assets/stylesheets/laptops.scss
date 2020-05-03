@@ -1,3 +1,5 @@
-// Place all the styles related to the laptops controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.laptop_body {
+    background:url('laptopbg.jpg');
+    min-height: 500px;
+    background-size: cover;
+}
