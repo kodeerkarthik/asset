@@ -3,10 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-
-    # def username
-    #   return self.email.split('@')[0].capitalize
-    # end
+  
+  validates :mobile, numericality: { only_integer: true }, length: { is: 10 }
+  validates :username, presence: true, uniqueness: true
 
     after_create :signup_confirmation
     def signup_confirmation
