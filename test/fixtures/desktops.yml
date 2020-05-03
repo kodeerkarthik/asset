@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  emp_id: MyString
+  asset_num: MyString
+  name: MyString
+  MAC_address: MyString
+  comment: MyString
+
+two:
+  emp_id: MyString
+  asset_num: MyString
+  name: MyString
+  MAC_address: MyString
+  comment: MyString

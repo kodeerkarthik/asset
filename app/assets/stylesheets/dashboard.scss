@@ -1,0 +1,28 @@
+.dashboard_body {
+    background:url('dashboardbg.jpg');
+    min-height: 500px;
+    background-size: cover;
+}
+
+.dashboard_shade {
+    margin: 0;
+    padding: 1px 100PX 0 100PX;
+    min-height: 535px;
+    background-color: rgba(4, 74, 83, 0.637);
+}
+
+.dashboard_welcome_body{
+    margin-top: 100px;
+    background: rgba(24, 117, 145, 0.993);
+    background-size: cover;
+    font-size: 35px;
+    text-align: center;
+    width: 50%;
+    font-weight: bold;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 50%;
+    color: white;
+    text-shadow: 1px 1px 20px;
+    border: solid 1px rgb(139, 205, 238);
+    height: 180px;
+}
