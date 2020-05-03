@@ -1,0 +1,39 @@
+<div class='container mt-5'>
+  <div class="shadow p-3 mb-5 bg-white rounded text-secondary">
+    <p class="list-group-item list-group-item-success">
+      <strong>Employee ID:</strong>
+      <%= @laptop.emp_id %>
+    </p>
+    
+    <p class="list-group-item list-group-item-warning">
+      <strong>Asset number:</strong>
+      <%= @laptop.asset_num %>
+    </p>
+
+    <p class="list-group-item list-group-item-warning">
+      <strong>Name:</strong>
+      <%= @laptop.name %>
+    </p>
+
+    <p class="list-group-item list-group-item-warning">
+      <strong>MAC Address:</strong>
+      <%= @laptop.MAC_address %>
+    </p>
+
+    <p class="list-group-item list-group-item-warning">
+      <strong>Charger Number:</strong>
+      <%= @laptop.charger_num %>
+    </p>
+
+    <p class="list-group-item list-group-item-warning">
+      <strong>Comment:</strong>
+      <%= @laptop.comment %>
+    </p>
+
+    <%= link_to "Edit", edit_laptop_path(@laptop), :class => 'btn btn-sm btn-dark'%>
+    <%= link_to "Delete", laptop_path(@laptop), :class => 'btn btn-sm btn-danger',
+                              method: :delete,
+                              data: { confirm: 'Are you sure?' }%>
+  </div>
+  <%= link_to 'Back', laptops_path, :class => 'btn btn-sm btn-dark mb-3'%>
+</div>
