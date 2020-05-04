@@ -2,8 +2,9 @@
   <head></head>
   <body class='laptop_body'>
     <div class='dashboard_shade'>
-      <%= link_to 'New Laptop', new_laptop_path,  :class => "btn btn-outline-warning mt-4"%>
-      
+      <% if can? :create, @laptop %>
+        <%= link_to 'New Laptop', new_laptop_path,  :class => "btn btn-outline-warning mt-4"%>
+      <%end%>  
       <hr /> 
       <div class='bg-warning shadow-lg'>
         <table class="table">

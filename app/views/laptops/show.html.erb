@@ -1,5 +1,5 @@
-<div class='container mt-5'>
-  <div class="shadow p-3 mb-5 bg-white rounded text-secondary">
+<div class='container mt-5 '>
+  <div class="shadow p-3 mb-5 rounded text-secondary">
     <p class="list-group-item list-group-item-success">
       <strong>Employee ID:</strong>
       <%= @laptop.emp_id %>
@@ -29,11 +29,14 @@
       <strong>Comment:</strong>
       <%= @laptop.comment %>
     </p>
-
-    <%= link_to " Edit", edit_laptop_path(@laptop), :class => 'fa fa-edit btn btn-sm btn-dark'%>
-    <%= link_to " Delete", laptop_path(@laptop), :class => 'fa fa-trash btn btn-sm btn-danger',
+    <% if can? :edit, @laptop %>
+      <%= link_to " Edit", edit_laptop_path(@laptop), :class => 'fa fa-edit btn btn-sm btn-dark'%>
+    <%end%>
+    <% if can? :delete, @laptop %>
+      <%= link_to " Delete", laptop_path(@laptop), :class => 'fa fa-trash btn btn-sm btn-danger',
                               method: :delete,
                               data: { confirm: 'Are you sure?' }%>
+    <% end %>
   </div>
   <%= link_to ' Back', laptops_path, :class => 'fa fa-reply btn btn-sm btn-dark mb-3'%>
 </div>
