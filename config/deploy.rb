@@ -3,11 +3,12 @@ lock "~> 3.13.0"
 
 set :application, 'asset'
 set :repo_url, 'git@github.com:kodeerkarthik/asset.git'
-set :deploy_to, '/opt/www/asset'
+set :branch, :development 
+set :deploy_to, -> { "/opt/www/#{fetch(:application)}" }
 set :user, 'darshan'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
 
-namespace :darshan do
+namespace :deploy do
 
   %w[start stop restart].each do |command|
     desc 'Manage Unicorn'
