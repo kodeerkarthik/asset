@@ -25,10 +25,14 @@
       <%= @desktop.comment %>
     </p>
 
-    <%= link_to "Edit", edit_desktop_path(@desktop), :class => 'btn btn-sm btn-dark'%>
-    <%= link_to "Delete", desktop_path(@desktop), :class => 'btn btn-sm btn-danger',
+    <% if can? :edit, @desktop %>
+      <%= link_to " Edit", edit_desktop_path(@desktop), :class => 'fa fa-edit btn btn-sm btn-dark'%>
+    <%end%>
+    <% if can? :delete, @desktop %>
+      <%= link_to " Delete", desktop_path(@desktop), :class => 'fa fa-trash btn btn-sm btn-danger',
                               method: :delete,
                               data: { confirm: 'Are you sure?' }%>
+    <%end%>
   </div>
-  <%= link_to 'Back', desktops_path, :class => 'btn btn-sm btn-dark mb-3'%>
+  <%= link_to ' Back', desktops_path, :class => 'fa fa-reply btn btn-sm btn-dark mb-3'%>
 </div>

@@ -2,8 +2,9 @@
   <head></head>
   <body class='desktop_body'>
     <div class='dashboard_shade'>
+    <% if can? :create, @desktop %>
       <%= link_to 'New Desktop', new_desktop_path,  :class => "btn btn-outline-warning mt-4"%>
-      
+    <%end%>
       <hr/> 
       <div class='bg-warning shadow-lg'>
         <table class="table">
@@ -25,7 +26,7 @@
                 <td><%= desktop.name %></td>
                 <td><%= desktop.MAC_address %></td>
                 <td><%= desktop.comment %></td>
-                <td><%= link_to "View", desktop_path(desktop), :class => 'btn btn-sm btn-info'%></td>
+                <td><%= link_to " View", desktop_path(desktop), :class => 'fa fa-eye btn btn-sm btn-info'%></td>
               </tr>
             <% end %>
           </tbody>

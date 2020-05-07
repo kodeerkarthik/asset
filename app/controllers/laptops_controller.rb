@@ -1,4 +1,5 @@
 class LaptopsController < ApplicationController
+  load_and_authorize_resource
   def index
     @laptops = Laptop.all
   end

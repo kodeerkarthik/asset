@@ -1,10 +1,11 @@
 <html>
   <head></head>
-  <body class='desktop_body'>
+  <body class='laptop_body'>
     <div class='dashboard_shade'>
-      <%= link_to 'New Laptop', new_laptop_path,  :class => "btn btn-outline-warning mt-4"%>
-      
-      <hr/> 
+      <% if can? :create, @laptop %>
+        <%= link_to 'New Laptop', new_laptop_path,  :class => "btn btn-outline-warning mt-4"%>
+      <%end%>  
+      <hr /> 
       <div class='bg-warning shadow-lg'>
         <table class="table">
           <thead class="bg-info text-white">
@@ -27,7 +28,7 @@
 								<td><%= laptop.MAC_address %></td>
 								<td><%= laptop.charger_num %></td>
                 <td><%= laptop.comment %></td>
-                <td><%= link_to "View", laptop_path(laptop), :class => 'btn btn-sm btn-info'%></td>
+                <td><%= link_to " View", laptop_path(laptop), :class => 'fa fa-eye btn btn-sm btn-info'%></td>
               </tr>
             <% end %>
           </tbody>
