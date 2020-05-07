@@ -2,8 +2,9 @@
   <head></head>
   <body class='desktop_body'>
     <div class='dashboard_shade'>
+    <% if can? :create, @desktop %>
       <%= link_to 'New Desktop', new_desktop_path,  :class => "btn btn-outline-warning mt-4"%>
-      
+    <%end%>
       <hr/> 
       <div class='bg-warning shadow-lg'>
         <table class="table">
