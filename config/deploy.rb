@@ -3,7 +3,7 @@ lock "~> 3.13.0"
 
 set :application, 'asset'
 set :repo_url, 'git@github.com:kodeerkarthik/asset.git'
-set :branch, :dev-laptop 
+set :branch, :development 
 set :deploy_to, -> { "/opt/www/#{fetch(:application)}" }
 set :user, 'darshan'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
