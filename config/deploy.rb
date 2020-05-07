@@ -1,29 +1,26 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.13.0"
 
-set :application, "asset"
-set :scm, :git
-set :repo_url, "git@github.com:kodeerkarthik/asset.git"
+set :application, 'asset'
+set :repo_url, 'git@github.com:kodeerkarthik/asset.git'
+set :deploy_to, '/var/www/asset'
+set :user, 'darshan'
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
 
+namespace :deploy do
 
-set :use_sudo, true
+  %w[start stop restart].each do |command|
+    desc 'Manage Unicorn'
+    task command do
+      on roles(:app), in: :sequence, wait: 1 do
+        execute "/etc/init.d/unicorn_#{fetch(:application)} #{command}"
+      end      
+    end
+  end
 
-set :log_level, :debug
+  after :publishing, :restart
 
-# restart app by running: touch tmp/restart.txt
-# at server machine
-set :passenger_restart_with_touch, true
-
-set :puma_threads, [4, 16]
-
-set :pty, true
-
-set :format, :pretty
-
-# Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, sudo chown -R $darshan:$darshan /var/www/asset
-
-set :deploy_to, -> { "/var/www/html/#{fetch(:application)}" }
+end
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
