@@ -1,4 +1,4 @@
-root = "/var/www/asset/current"
+root = "/opt/www/asset/current"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
