@@ -7,7 +7,9 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-
+role :app, %w{darshan@35.202.203.160}
+role :web, %w{darshan@35.202.203.160}
+role :db,  %w{darshan@35.202.203.160}
 
 # role-based syntax
 # ==================
@@ -59,24 +61,3 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-# server-based syntax
-# ======================
-# Defines a single server with a list of roles and multiple properties.
-# You can define all roles on a single server, or split them:
-
-# set :stage, :production
-# set :rails_env, :production
-# set :branch, "master"
-
-# server "<35.202.203.160>", user: "<darshan>", roles: %w{app db web}
-
-role :app, %w{darshan@35.202.203.160}
-
-server '35.202.203.160', user: 'darshan', roles: %w{web app}
-
-set :ssh_options, {
-keys: %w(/User/dshivakumar/.ssh/rubydeploy.pub),
-forward_agent: false,
-user: 'user'
-
-}

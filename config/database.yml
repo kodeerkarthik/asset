@@ -92,8 +92,8 @@ development:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-# production:
-#   <<: *default
-#   database: asset_production
+production:
+  <<: *default
+  database: asset_production
 #   username: asset
 #   password: <%= ENV['ASSET_DATABASE_PASSWORD'] %>
