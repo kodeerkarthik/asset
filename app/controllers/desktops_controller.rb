@@ -45,6 +45,6 @@ class DesktopsController < ApplicationController
 
   private
     def desktop_params
-      params.require(:desktop).permit(:emp_id, :asset_num,:name,:MAC_address,:comment)
+      params.require(:desktop).permit(:emp_id, :asset_num,:name,:MAC_address,:comment, {images: []})
     end
 end

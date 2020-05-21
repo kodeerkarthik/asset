@@ -35,6 +35,13 @@
         </div>
 
         <div class="row mb-3">
+          <%= form.label :images, :class=>'col-sm-3 col-form-label text-right'%>
+          <div class='col-sm-9'>
+            <%= form.file_field(:images, multiple:true, :class => "form-control") %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
           <%= form.label :Comment, :class=>'col-sm-3 col-form-label text-right'%>
           <div class='col-sm-9'>
             <%= form.text_area(:comment, {:class => "form-control mb-4"}) %>

@@ -44,6 +44,6 @@ class LaptopsController < ApplicationController
 
   private
     def laptop_params
-      params.require(:laptop).permit(:emp_id, :asset_num,:name,:MAC_address,:charger_num,:comment)
+      params.require(:laptop).permit(:emp_id, :asset_num,:name,:MAC_address,:charger_num,:comment, {images: []})
     end
 end

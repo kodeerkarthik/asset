@@ -1,38 +1,68 @@
 <div class='container mt-5'>
-  <div class="shadow p-3 mb-5 bg-white rounded text-secondary">
-    <p class="list-group-item list-group-item-success">
-      <strong>Employee ID:</strong>
-      <%= @desktop.emp_id %>
-    </p>
-    
-    <p class="list-group-item list-group-item-warning">
-      <strong>Asset number:</strong>
-      <%= @desktop.asset_num %>
-    </p>
+  <div class='row'>
+    <div class="col-6 shadow p-3 mb-5 bg-white rounded text-secondary">
+      <p class="list-group-item list-group-item-success">
+        <strong>Employee ID:</strong>
+        <%= @desktop.emp_id %>
+      </p>
+      
+      <p class="list-group-item list-group-item-warning">
+        <strong>Asset number:</strong>
+        <%= @desktop.asset_num %>
+      </p>
 
-    <p class="list-group-item list-group-item-warning">
-      <strong>Name:</strong>
-      <%= @desktop.name %>
-    </p>
+      <p class="list-group-item list-group-item-warning">
+        <strong>Name:</strong>
+        <%= @desktop.name %>
+      </p>
 
-    <p class="list-group-item list-group-item-warning">
-      <strong>MAC Address:</strong>
-      <%= @desktop.MAC_address %>
-    </p>
+      <p class="list-group-item list-group-item-warning">
+        <strong>MAC Address:</strong>
+        <%= @desktop.MAC_address %>
+      </p>
 
-    <p class="list-group-item list-group-item-warning">
-      <strong>Comment:</strong>
-      <%= @desktop.comment %>
-    </p>
+      <p class="list-group-item list-group-item-warning">
+        <strong>Comment:</strong>
+        <%= @desktop.comment %>
+      </p>
 
-    <% if can? :edit, @desktop %>
-      <%= link_to " Edit", edit_desktop_path(@desktop), :class => 'fa fa-edit btn btn-sm btn-dark'%>
-    <%end%>
-    <% if can? :delete, @desktop %>
-      <%= link_to " Delete", desktop_path(@desktop), :class => 'fa fa-trash btn btn-sm btn-danger',
-                              method: :delete,
-                              data: { confirm: 'Are you sure?' }%>
-    <%end%>
+      <p class="list-group-item list-group-item-warning">
+        <strong>Images:</strong>
+        <% @desktop.images.each do |image| %>
+          <%= link_to(image_tag(image.thumb.url), image.url) %>
+        <% end %>
+      </p>
+
+      <% if can? :edit, @desktop %>
+        <%= link_to " Edit", edit_desktop_path(@desktop), :class => 'fa fa-edit btn btn-sm btn-dark'%>
+      <%end%>
+      <% if can? :delete, @desktop %>
+        <%= link_to " Delete", desktop_path(@desktop), :class => 'fa fa-trash btn btn-sm btn-danger',
+                                method: :delete,
+                                data: { confirm: 'Are you sure?' }%>
+      <%end%>
+    </div>
+    <div class='col-1'></div>
+    <div class='col-5 shadow p-3  bg-light rounded'>
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%=image_tag(@desktop.images.last.url ,:class=>'d-block w-100')if @desktop.images? %>
+          </div>
+          <% @desktop.images.each do |image| %>
+            <div class="carousel-item">
+              <%=image_tag(image.url, :class=>'d-block w-100' )%>
+            </div>
+          <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
   </div>
   <%= link_to ' Back', desktops_path, :class => 'fa fa-reply btn btn-sm btn-dark mb-3'%>
 </div>
